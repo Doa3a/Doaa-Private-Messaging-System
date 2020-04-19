@@ -16,7 +16,6 @@ session_start();
 				echo 'Welcome '.htmlentities($_SESSION['user_name'], ENT_QUOTES, 'UTF-8');}
 				else{
 					header("location:index.php");}?>
-				<a style ="float:right" href="Logout.php" >Logout</a>
 		</div>
 <div class = "section2"> 
       <a style="color:blue;">Send a new message:</a>
@@ -76,3 +75,4 @@ function rediroutbox() {
 
 </body>
 </html>
+	
