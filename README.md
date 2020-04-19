@@ -1,7 +1,7 @@
 # Doaa-Private-Messaging-System
 After downloading the project, place it in the installation directory that contain 'xampp\htdocs' as C:\xampp\htdocs.
 In the browser type http://localhost/phpmyadmin/, create a new database called messages and import the attaches (messages.sql) in it.
-Open the the home page index.php with any browser as google chrome.
+Open the the home page index.php with google chrome.
 Replace the file:///C:/xampp/htdocs with 'localhost'.
 You have two choose login if you have an account in my system and if you haven't, you must choose register.
 Choosing register, left you with a form to type a username and an email address that are not be used in the users table in the database named messages, the password must ne at least 8 and has a combination of (uppercase letter,lowercase letter,number and special characters). Filling the form correctly will showed by a sucess message with a link to login page. Errors prevent you from completing and an error message is showed under the uncorrect field. Your username, email and you hashed password are stored in the users table.
