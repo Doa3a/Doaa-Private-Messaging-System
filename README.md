@@ -1,6 +1,6 @@
 # Doaa-Private-Messaging-System
 After downloading the project, place it in the installation directory that contain 'xampp\htdocs' as C:\xampp\htdocs.
-Start MYSQL from the XAMPP control panel.
+Start Apache and MYSQL from the XAMPP control panel.
 In the browser type http://localhost/phpmyadmin/, create a new database called messages and import the attaches (messages.sql) in it.
 Open the the home page index.php with google chrome.
 Replace the file:///C:/xampp/htdocs with 'localhost'.
