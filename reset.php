@@ -2,8 +2,6 @@
 session_start();
 ?>
 <?php
-            $c_email = "";
-			$err_array = array('email_err' => '');
 			$c_user = $c_email = "";
 			$err_array = array('user_err' => '','email_err' => '');
 			if (isset($_POST['Submit'])) {
