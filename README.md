@@ -1,5 +1,5 @@
 # Doaa-Private-Messaging-System
-After downloading the project, place in in the installation directory that contain 'xampp\htdocs' as C:\xampp\htdocs.
+After downloading the project, place it in the installation directory that contain 'xampp\htdocs' as C:\xampp\htdocs.
 Open the the home page is index.php with any browser as google chrome.
 Replace the file:///C:/xampp/htdocs with 'localhost'.
 You have two choose login if you have an account in my system and if you haven't, you must choose register.
