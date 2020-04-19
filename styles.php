@@ -163,7 +163,7 @@ table.fixed td { overflow: auto; border: 1px solid black;}
   border: none;
   cursor: pointer;
   position: fixed;
-  bottom: 30px;
+  bottom: 40px;
   right: 400px;
   margin-bottom:100px;
   opacity: 0.8;
