@@ -25,7 +25,7 @@ input {
 
 input[type=submit] {
   width: 150px;
-  background-color: darkblue;
+  background-color: #4CAF50;
   color: white;
   padding: 16px 32px;
   border: none;
@@ -163,7 +163,7 @@ table.fixed td { overflow: auto; border: 1px solid black;}
   border: none;
   cursor: pointer;
   position: fixed;
-  bottom: 40px;
+  bottom: 30px;
   right: 400px;
   margin-bottom:100px;
   opacity: 0.8;
