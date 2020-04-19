@@ -11,7 +11,7 @@ session_start();
 				$number    = preg_match('@[0-9]@', $c_password);
 				$specialChars = preg_match('@[^\w]@', $c_password);
 
-            if (!$uppercase || !$lowercase || !$number || !$specialChars ||strlen($c_password) <= '8') {  
+            if (!$uppercase || !$lowercase || !$number || !$specialChars ||strlen($c_password) < '8') {  
                 $err_array['password_err1'] = "Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters";
             } else{
 			$c_passverif = clean_input($_POST["passverif"]);
