@@ -46,7 +46,7 @@ function clean_input($data) {
 		</div>
 <div>
 		<form method="post" class="form-container" >
-		<br><br><a style="color:blue;">Please enter your username and the registered email Address</a><br>
+		<br><br><a style="color:blue;">Please enter your username and the registered email Address</a><br/><br/>
 		 <label for="user"><b>Username</b></label>
 		 <input type="text" placeholder="user name" name="user_name" class="input" required/><br/>
 	     <span class="error"><?php echo $err_array['user_err']; ?></span><br/>
