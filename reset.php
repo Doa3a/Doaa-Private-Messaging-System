@@ -2,9 +2,10 @@
 session_start();
 ?>
 <?php
+            
 			$c_user = $c_email = "";
 			$err_array = array('user_err' => '','email_err' => '');
-			if (isset($_POST['Submit'])) {
+			if (isset($_POST['Apply'])) {
 	        
 			$c_user = clean_input($_POST["user_name"]);
 			if (!preg_match("/^[a-zA-Z ]*$/",$c_user)) {
@@ -16,12 +17,13 @@ session_start();
 			
 			$sql_u = "SELECT * FROM `users` WHERE `user_name`='$c_user' AND `Email`='$c_email'";
 			$res_u = mysqli_query($con, $sql_u);
-			if (mysqli_num_rows($res_u) == 0) {
-			$err_array['email_err'] = 'No record found with the supplied data';}
-			if(count(array_filter($err_array)) == 0){
+			if (mysqli_num_rows($res_u) === 0) {
+			echo 'Sorry...';}
+			elseif(count(array_filter($err_array)) == 0){
 			header("location:newpass.php");
+			$_SESSION['user_name'] = $_POST['user_name']; 
 		}
-			}	
+			}		
 		
 function clean_input($data) {
          $data = trim($data);
@@ -39,27 +41,21 @@ function clean_input($data) {
  
 <div id="container"> 
 		<div id="menu" align="center"> 
+         
 		Resetting password   
 		</div>
 <div>
 		<form method="post" class="form-container" >
-		<br/><a style="color:blue;">Please enter your user name and the registered E-mail address:</a><br/><br/>
+	 	<br><br><br>Enter Email Address To Send Password Link<br/><br><br>
 		 <label for="user"><b>Username</b></label>
 		 <input type="text" placeholder="user name" name="user_name" class="input" required/><br/>
 	     <span class="error"><?php echo $err_array['user_err']; ?></span><br/>
 		<label for="email"><b>E-mail</b></label>
 		 <input type="email" placeholder="E-mail" name="Email" class="input" required/><br/>
 		 <span class="error"><?php echo $err_array['email_err']; ?></span><br><br>
-		<input type="submit" name="Submit" style="margin-left: 10px;" value="Submit" /> 
-<button class = "cancel-button" onclick="goBack()" style="margin-left: 10px; background-color:darkblue">Cancel</button>
-
+		<input type="submit" name="Apply" value="Apply" /> <br><br>
 	    </form>
 </div>	
 
-<script>
-function goBack() {
-  window.history.back();
-}
-</script>
 </body>
 <html>
