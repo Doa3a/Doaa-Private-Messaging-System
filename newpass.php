@@ -12,25 +12,22 @@ session_start();
 				$specialChars = preg_match('@[^\w]@', $c_password);
 
             if (!$uppercase || !$lowercase || !$number || !$specialChars ||strlen($c_password) <= '8') {  
-                $err_array['password_err1'] = "Must contain at least one number and one uppercase and lowercase letter, and the total length is at least 8";
+                $err_array['password_err1'] = "Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters";
             } else{
 			$c_passverif = clean_input($_POST["passverif"]);
 			if ($c_password != $c_passverif) {
                         $err_array['password_err2'] = "Ooops, passwords don't match";
-                    } else {
-			$q="UPDATE `users` SET `password`='".hash("sha256", $c_password)."' WHERE `user_name`='".$_SESSION['user_name']."'";
-					$res= mysqli_query($con,$q);}
+                    }
 			}
-			if ($res){
+		if(count(array_filter($err_array)) == 0){
+			
+			$q="UPDATE `users` SET `password`='".hash("sha256", $c_password)."' WHERE `user_name`='".$_SESSION['user_name']."'";
+				$res= mysqli_query($con,$q);
 			echo '<div class="alert alert-success">
-			  <strong>Success: your password has been resetted, </strong> You should <a href="login.php" class="alert-link">login again</a>.
+			  <strong>Success!</strong> You should <a href="login.php" class="alert-link">login again</a>.
 			</div>';
-				} else {
-					echo '<div class="alert alert-success">
-			  <strong>Success: your password has been resetted, </strong></a>.
-			</div>';
-				}
 }	  
+			}
 function clean_input($data) {
          $data = trim($data);
          $data = stripslashes($data);
@@ -47,11 +44,7 @@ function clean_input($data) {
  
 <div id="container"> 
 		<div id="menu" align="center"> 
-           <?php if (isset($_SESSION['user_name'])) {
-				echo 'Welcome '.htmlentities($_SESSION['user_name'], ENT_QUOTES, 'UTF-8');}
-				else{
-					header("location:reset.php");
-				}?>
+           <?php echo 'Welcome '.htmlentities($_SESSION['user_name'], ENT_QUOTES, 'UTF-8');?>
 		      <br>Set your new Password<br>
 </div>
 		<form  method="post" class="form-container" >
@@ -60,7 +53,7 @@ function clean_input($data) {
 	 <input type="password" placeholder="Password" name="password" class="input" required/><br />
 	 <span class="error"><?php echo $err_array['password_err1']; ?></span><br />
 	     <label for="pwd"><b>Confirm Password</b></label>
-	 <input type="password" placeholder="re-type Password" name="passverif" class="input" required/><br />
+	 <input type="password" placeholder="Re-type Password" name="passverif" class="input" required/><br />
 	 <span class="error"><?php echo $err_array['password_err2']; ?></span><br />
 	 <input type="submit" name="Reset" value="Reset" /> <br><br>
 
